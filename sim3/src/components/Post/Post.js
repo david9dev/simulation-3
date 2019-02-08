@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Post extends Component
 {
@@ -6,6 +7,10 @@ class Post extends Component
     {
         super();
         this.state = {};
+    }
+    componentDidMount()
+    {
+
     }
     render()
     {
