@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
 const authctr = require('./controllers/auth');
+const messagectr = require('./controllers/message');
 const app = express();
 const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
 
@@ -18,5 +19,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.post('/api/login',authctr.login)
+app.post('/api/register',authctr.register)
+app.post('/api/logout', authctr.logout)
 
 app.listen(SERVER_PORT, () => console.log('listening on port',SERVER_PORT))
