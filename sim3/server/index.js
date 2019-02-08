@@ -24,4 +24,8 @@ app.post('/api/login',authctr.login)
 app.post('/api/register',authctr.register)
 app.post('/api/logout', authctr.logout)
 
+app.get('/api/posts',messagectr.getPosts);
+app.get('/api/posts/:id', messagectr.getPostById);
+app.post('/api/posts', messagectr.createPost);
+
 app.listen(SERVER_PORT, () => console.log('listening on port',SERVER_PORT))
